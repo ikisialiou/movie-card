@@ -40,7 +40,7 @@ const config: IConfiguaration = {
       {
         enforce: 'pre',
         test: /\.(ts|tsx)$/,
-        loader: 'eslint-loader',
+        loader: 'tslint-loader',
         exclude: /node_modules/,
       },
       {
