@@ -6,7 +6,7 @@ import { IConfiguaration } from './webpack.common';
 const config: IConfiguaration = {
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
   resolve: {
