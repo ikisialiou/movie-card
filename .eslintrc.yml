@@ -1,0 +1,76 @@
+env:
+  browser: true
+  es6: true
+extends:
+  - airbnb
+  - plugin:react/recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier/@typescript-eslint
+  - plugin:prettier/recommended
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+plugins:
+  - react
+  - "@typescript-eslint"
+  - prettier
+settings:
+  import/resolver: webpack
+  react:
+    version: 16.8.6
+parser: '@typescript-eslint/parser'
+rules:
+  indent:
+    - 2
+    - 2
+    - SwitchCase: 1
+  semi: 2
+  max-len: 1
+  max-depth: 
+    - 1
+    - 2
+  quotes:
+    - 2
+    - single
+  prefer-destructuring: 2
+  no-plusplus: 0
+  func-names: 0
+  comma-dangle:
+    - 2
+    - functions: ignore
+      objects: always-multiline
+      arrays: always-multiline
+      imports: always-multiline
+      exports: always-multiline  
+  no-underscore-dangle: 0
+  import/prefer-default-export: 0
+  react/no-deprecated: 2
+  react/jsx-filename-extension: 0
+  react/require-default-props: 0
+  react/forbid-prop-types: 0
+  react/no-children-prop: 0
+  react/jsx-one-expression-per-line:
+    - 2
+    - allow: single-child
+  react/destructuring-assignment: 0
+  react/jsx-indent:
+    - 2
+    - 2
+  react/jsx-indent-props:
+    - 2
+    - 2
+  react/jsx-closing-bracket-location: 
+    - 2
+    - selfClosing: tag-aligned
+      nonEmpty: line-aligned
+  jsx-a11y/click-events-have-key-events: 0
+  jsx-a11y/label-has-for: 0
+  jsx-a11y/anchor-is-valid: 0
+  jsx-a11y/no-static-element-interactions: 0
+  object-curly-newline: 1
+  "@typescript-eslint/explicit-function-return-type":
+    - 2
+    - allowExpressions: true
+      allowTypedFunctionExpressions: true

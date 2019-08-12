@@ -1,5 +1,3 @@
 import * as React from 'react';
 
-export const App = () => (
-  <div>Test</div>
-);
+export const App: React.FunctionComponent<{}> = () => <div>Test</div>;

@@ -1,0 +1,9 @@
+singleQuote: true
+interface-name-prefix: true
+comma-dangle:
+  - 2
+  - functions: ignore
+    objects: always-multiline
+    arrays: always-multiline
+    imports: always-multiline
+    exports: always-multiline
