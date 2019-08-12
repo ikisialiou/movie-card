@@ -33,6 +33,8 @@ so I recommend do not touch anything besides next.. next.. finish buttons:) )
 * **build** - builds ready for deploy app assets in dist/ directory
 * **server** - run app own server mode in prod mode
 * **lint** - run eslint and stylelint
+* **lint:src** - run eslint to check your code style and validity
+* **stylelint** - run stylelint to check your code style in style files
 
 #### Code Style Guide
 

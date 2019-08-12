@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as HtmlWebPackPlugin from 'html-webpack-plugin';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as StyleLintPlugin from 'stylelint-webpack-plugin';
 import { IConfiguaration } from './webpack.common';
 
 const config: IConfiguaration = {
@@ -67,6 +68,9 @@ const config: IConfiguaration = {
         to: './images',
       },
     ]),
+    new StyleLintPlugin({
+      files: ['src/**/*.scss']
+    }),
   ],
   devtool: 'source-map',
   devServer: {
