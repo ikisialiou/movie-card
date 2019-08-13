@@ -1,6 +1,7 @@
 singleQuote: true
-interface-name-prefix: true
-comma-dangle:
+trailingComma: "es5"
+printWidth: 120
+commaDangle:
   - 2
   - functions: ignore
     objects: always-multiline

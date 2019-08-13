@@ -1,0 +1,17 @@
+@import '../../styles/main';
+
+.button {
+  padding: 10px 15px;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.gray {
+  background-color: $color-dark-gray;
+}
+
+.pink {
+  background-color: $color-pink;
+}

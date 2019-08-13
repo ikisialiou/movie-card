@@ -8,11 +8,14 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es2017",
-    "jsx": "preserve",
+    "jsx": "react",
     "allowJs": true
   },
   "exclude": [
     "node_modules",
     "public"
+  ],
+  "include": [
+    "src"
   ]
 }

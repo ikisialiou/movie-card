@@ -1,0 +1,23 @@
+@import '../styles/main';
+
+.banner {
+  background-color: $color-dark-gray;
+  opacity: 0.9;
+
+  .search {
+    padding: 10px 0;
+
+    &__params {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+    }
+  }
+}
+
+.sort-panel {
+  height: 50px;
+  line-height: 50px;
+  background-color: $color-gray;
+}

@@ -21,17 +21,16 @@ const config: IConfiguaration = {
       '.js',
       '.jsx',
     ],
+    alias: {
+      common: path.resolve(__dirname, 'src/components/Common/'),
+    }
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-          },
-        ],
+        use: 'ts-loader',
       },
       {
         enforce: 'pre',
@@ -45,13 +44,25 @@ const config: IConfiguaration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-modules-typescript-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [
+                path.resolve(__dirname, 'src'),
+              ],
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
     ],
