@@ -1,8 +1,8 @@
 import {
-  GET_MOVIES_REQUEST,
-  GET_MOVIES_REQUEST_SUCCESS,
-  GET_MOVIES_REQUEST_FAILURE,
-  MoviesRequestActionType,
+  SEARCH_MOVIES_REQUEST,
+  SEARCH_MOVIES_REQUEST_SUCCESS,
+  SEARCH_MOVIES_REQUEST_FAILURE,
+  SearchMoviesRequestActionType,
 } from '../../actions/types';
 import { MoviesState } from './types';
 
@@ -11,18 +11,18 @@ const initialState: MoviesState = {
   error: '',
 };
 
-export const moviesList = (state = initialState, action: MoviesRequestActionType): MoviesState => {
+export const moviesList = (state = initialState, action: SearchMoviesRequestActionType): MoviesState => {
   switch (action.type) {
-    case GET_MOVIES_REQUEST:
+    case SEARCH_MOVIES_REQUEST:
       return {
         ...state,
       };
-    case GET_MOVIES_REQUEST_SUCCESS:
+    case SEARCH_MOVIES_REQUEST_SUCCESS:
       return {
         ...state,
         movies: action.payload.movies,
       };
-    case GET_MOVIES_REQUEST_FAILURE:
+    case SEARCH_MOVIES_REQUEST_FAILURE:
       return {
         ...state,
         error: action.payload.error,

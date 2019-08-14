@@ -1,11 +1,11 @@
 import { ThunkAction } from 'redux-thunk';
 import { Action } from 'redux';
 import { API_HOST } from '../config/config';
-import { IActions, IRequestOptions } from './types';
+import { Actions, RequestOptions } from './types';
 
 export const asyncActionCreator = (
-  actions: IActions,
-  passedOptions: IRequestOptions
+  actions: Actions,
+  passedOptions: RequestOptions
 ): ThunkAction<Promise<void>, {}, {}, Action> => {
   return (dispatch: any) => {
     dispatch(actions.onRequest());

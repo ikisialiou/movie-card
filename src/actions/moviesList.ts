@@ -4,41 +4,44 @@ import { ThunkAction } from 'redux-thunk';
 import { asyncActionCreator } from '../utils/utils';
 import {
   Movie,
-  MoviesRequestActionType,
-  GET_MOVIES_REQUEST,
-  GET_MOVIES_REQUEST_SUCCESS,
-  GET_MOVIES_REQUEST_FAILURE,
+  SearchMoviesRequestActionType,
+  SEARCH_MOVIES_REQUEST,
+  SEARCH_MOVIES_REQUEST_SUCCESS,
+  SEARCH_MOVIES_REQUEST_FAILURE,
 } from './types';
 
 const MOVIES_PATH = '/movies';
 
-export const getMoviesRequest = (): MoviesRequestActionType => ({
-  type: GET_MOVIES_REQUEST,
+export const searchMoviesRequest = (): SearchMoviesRequestActionType => ({
+  type: SEARCH_MOVIES_REQUEST,
 });
 
-export const getMoviesRequestSuccess = (movies: Movie[]): MoviesRequestActionType => ({
-  type: GET_MOVIES_REQUEST_SUCCESS,
+export const searchMoviesRequestSuccess = (movies: Movie[]): SearchMoviesRequestActionType => ({
+  type: SEARCH_MOVIES_REQUEST_SUCCESS,
   payload: {
     movies,
   },
 });
 
-export const getMoviesRequestFailure = (error: string): MoviesRequestActionType => ({
-  type: GET_MOVIES_REQUEST_FAILURE,
+export const searchMoviesRequestFailure = (error: string): SearchMoviesRequestActionType => ({
+  type: SEARCH_MOVIES_REQUEST_FAILURE,
   payload: {
     error,
   },
 });
 
-export const loadMovies = (): ThunkAction<Promise<void>, {}, {}, AnyAction> =>
+export const searchMovies = (
+  searchBy: 'title' | 'genres',
+  search: string
+): ThunkAction<Promise<void>, {}, {}, AnyAction> =>
   asyncActionCreator(
     {
-      onRequest: getMoviesRequest,
-      onSuccess: getMoviesRequestSuccess,
-      onFailure: getMoviesRequestFailure,
+      onRequest: searchMoviesRequest,
+      onSuccess: searchMoviesRequestSuccess,
+      onFailure: searchMoviesRequestFailure,
     },
     {
-      path: MOVIES_PATH,
+      path: `${MOVIES_PATH}?searchBy=${searchBy}&search=${search}`,
       method: 'get',
     }
   );

@@ -10,6 +10,6 @@ interface ButtonProps {
 export const Input: React.FC<ButtonProps> = ({ label, name }) => (
   <React.Fragment>
     {label && <label>{label}</label>}
-    <input name="name" className="input" />
+    <input name={name} className="input" />
   </React.Fragment>
 );

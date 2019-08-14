@@ -1,17 +1,17 @@
-export interface IRequestAction {
+export interface RequestAction {
   type: string;
   payload?: {
     [x: string]: any;
   };
 }
 
-export interface IActions {
-  onRequest: () => IRequestAction;
-  onSuccess: (response: any) => IRequestAction;
-  onFailure: (err: string) => IRequestAction;
+export interface Actions {
+  onRequest: () => RequestAction;
+  onSuccess: (response: any) => RequestAction;
+  onFailure: (err: string) => RequestAction;
 }
 
-export interface IRequestOptions {
+export interface RequestOptions {
   path: string;
   method: string;
   body?: {
