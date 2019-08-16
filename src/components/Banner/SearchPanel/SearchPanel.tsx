@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { Button } from 'common/Button';
-import { ButtonColorType, ButtonEvent } from 'common/Button/Button';
-import { Input } from 'common/Input';
+import { Button } from 'components/Common/Button';
+import { ButtonColorType, ButtonEvent } from 'components/Common/Button/Button';
+import { Input } from 'components/Common/Input';
 import * as styles from './SearchPanel.scss';
 
 const cx = classNames.bind(styles);
