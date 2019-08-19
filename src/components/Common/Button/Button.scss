@@ -1,17 +1,21 @@
 @import '../../styles/main';
 
+@mixin bg-color($bgColor) {
+  background-color: $bgColor;
+}
+
 .button {
   padding: 10px 15px;
-  color: #fff;
+  color: $color-white;
   border: none;
   border-radius: 2px;
   cursor: pointer;
-}
 
-.gray {
-  background-color: $color-dark-gray;
-}
+  &__gray {
+    @include bg-color($color-dark-gray);
+  }
 
-.pink {
-  background-color: $color-pink;
+  &__pink {
+    @include bg-color($color-pink);
+  }
 }

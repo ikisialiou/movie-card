@@ -1,1 +1,1 @@
-export { ConnectedMoviesListContainer as MoviesList } from './MoviesListContainer';
+export { MoviesListContainer as MoviesList } from './MoviesListContainer';

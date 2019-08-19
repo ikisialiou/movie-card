@@ -1,62 +1,39 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
 
 import { searchMovies } from '../../actions/moviesList';
 import { Logo } from '../Logo';
 import { SearchPanel } from './SearchPanel';
-import * as styles from './Banner.scss';
+import './Banner.scss';
 import { SearchParamsEvent, SearchByType } from './SearchPanel/SearchPanel';
 
-const cx = classNames.bind(styles);
-
 interface MoviesListDispatchProps {
-  searchMovies: (searchBy: SearchByType, search: string) => void;
+  onSearchMoviesClick: (searchBy: SearchByType, search: string) => void;
 }
 
 interface BannerProps {
-  searchMovies: (searchBy: SearchByType, search: string) => void;
+  onSearchMoviesClick: (searchBy: SearchByType, search: string) => void;
 }
 
-interface BannerState {
-  searchBy: SearchByType;
-}
+export const Banner: React.FC<{}> = () => {
+  const [searchBy, setSearchBy] = React.useState<SearchByType>('title');
+  const dispatch = useDispatch();
 
-const connector = connect<{}, MoviesListDispatchProps, {}>(
-  null,
-  { searchMovies }
-);
-
-class Banner extends React.Component<BannerProps, BannerState> {
-  public state: BannerState = {
-    searchBy: 'title',
-  };
-
-  private onClickSearch = (e: any) => {
+  const onClickSearch = (e: any): void => {
     e.preventDefault();
     const { value } = e.target.elements.search;
-    this.props.searchMovies(this.state.searchBy, value);
+    dispatch(searchMovies(searchBy, value));
   };
 
-  private onChangeSearchParam = ({ target }: SearchParamsEvent): void => {
-    this.setState({
-      searchBy: target.name,
-    });
+  const onChangeSearchParam = ({ target }: SearchParamsEvent): void => {
+    setSearchBy(target.name);
   };
 
-  public render(): JSX.Element {
-    return (
-      <div className={cx('banner')}>
-        <Logo />
+  return (
+    <div className="banner">
+      <Logo />
 
-        <SearchPanel
-          searchBy={this.state.searchBy}
-          onChangeSearchParam={this.onChangeSearchParam}
-          onClickSearch={this.onClickSearch}
-        />
-      </div>
-    );
-  }
-}
-
-export const ConnectedBanner = connector(Banner);
+      <SearchPanel searchBy={searchBy} onChangeSearchParam={onChangeSearchParam} onClickSearch={onClickSearch} />
+    </div>
+  );
+};

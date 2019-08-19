@@ -1,12 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 import { Button } from 'components/Common/Button';
 import { ButtonColorType, ButtonEvent } from 'components/Common/Button/Button';
 import { Input } from 'components/Common/Input';
-import * as styles from './SearchPanel.scss';
-
-const cx = classNames.bind(styles);
+import './SearchPanel.scss';
 
 export type SearchByType = 'title' | 'genres';
 
@@ -34,11 +31,11 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ searchBy, onChangeSear
   };
 
   return (
-    <div className={cx('search')}>
+    <div className="search">
       <form onSubmit={onClickSearch}>
         <h2>FIND YOUR MOVIE</h2>
         <Input name="search" />
-        <div className={cx('search__params')}>
+        <div className="search__params">
           <div>
             <span>SEARCH BY</span>
             <Button name="title" caption="TITLE" color={getColorButton('title')} onClick={onChangeSearchParam} />

@@ -1,16 +1,12 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
+import { Movie } from 'actions/types';
 import { MoviesList } from '../components/Movie';
-import { IState } from '../config/types';
-import { MoviesListStateProps, MoviesListProps } from './types';
+import { State } from '../config/types';
 
-const connector = connect<MoviesListStateProps, {}, {}>(
-  (state: IState): MoviesListStateProps => ({
-    movies: state.moviesList.movies,
-  })
-);
+export const MoviesListContainer: React.FC<{}> = () => {
+  const movies = useSelector((state: State): Movie[] => state.moviesList.movies);
 
-const MoviesListContainer: React.FC<MoviesListProps> = ({ movies }) => <MoviesList movies={movies} />;
-
-export const ConnectedMoviesListContainer = connector(MoviesListContainer);
+  return <MoviesList movies={movies} />;
+};

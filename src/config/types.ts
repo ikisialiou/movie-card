@@ -1,5 +1,5 @@
 import { MoviesState } from '../reducers/moviesList/types';
 
-export interface IState {
+export interface State {
   moviesList: MoviesState;
 }

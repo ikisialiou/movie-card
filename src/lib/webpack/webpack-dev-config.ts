@@ -8,7 +8,6 @@ const config: WebpackConfig = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          'css-modules-typescript-loader',
           'css-loader',
           'sass-loader',
         ],

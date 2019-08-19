@@ -1,1 +1,1 @@
-export { ConnectedBanner as Banner } from './Banner';
+export { Banner } from './Banner';
