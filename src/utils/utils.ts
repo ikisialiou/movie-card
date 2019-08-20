@@ -1,26 +1,14 @@
-import { ThunkAction } from 'redux-thunk';
-import { Action } from 'redux';
 import { API_HOST } from '../config/config';
-import { Actions, RequestOptions } from './types';
+import { RequestOptions } from './types';
 
-export const asyncActionCreator = (
-  actions: Actions,
-  passedOptions: RequestOptions
-): ThunkAction<Promise<void>, {}, {}, Action> => {
-  return (dispatch: any) => {
-    dispatch(actions.onRequest());
+export const apiRequest = async (passedOptions: RequestOptions): Promise<void> => {
+  const response = await fetch(`${API_HOST}${passedOptions.path}`, {
+    method: passedOptions.method,
+  });
 
-    return fetch(`${API_HOST}${passedOptions.path}`, {
-      method: passedOptions.method,
-    })
-      .then(response => {
-        if (!response.ok) {
-          return Promise.reject(new Error('An error occurs during request'));
-        }
+  if (!response.ok) {
+    throw Error('An error occurs during request');
+  }
 
-        return response.json();
-      })
-      .then(response => dispatch(actions.onSuccess(response.data)))
-      .catch(err => dispatch(actions.onFailure(err)));
-  };
+  return response.json();
 };

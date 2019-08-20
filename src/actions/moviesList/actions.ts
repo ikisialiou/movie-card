@@ -1,16 +1,12 @@
-import { AnyAction } from 'redux';
-import { ThunkAction } from 'redux-thunk';
-
-import { asyncActionCreator } from '../utils/utils';
 import {
   Movie,
   SearchMoviesRequestActionType,
   SEARCH_MOVIES_REQUEST,
   SEARCH_MOVIES_REQUEST_SUCCESS,
   SEARCH_MOVIES_REQUEST_FAILURE,
+  SEARCH_MOVIES_ACTION,
+  SearchMoviesAction,
 } from './types';
-
-const MOVIES_PATH = '/movies';
 
 export const searchMoviesRequest = (): SearchMoviesRequestActionType => ({
   type: SEARCH_MOVIES_REQUEST,
@@ -30,18 +26,10 @@ export const searchMoviesRequestFailure = (error: string): SearchMoviesRequestAc
   },
 });
 
-export const searchMovies = (
-  searchBy: 'title' | 'genres',
-  search: string
-): ThunkAction<Promise<void>, {}, {}, AnyAction> =>
-  asyncActionCreator(
-    {
-      onRequest: searchMoviesRequest,
-      onSuccess: searchMoviesRequestSuccess,
-      onFailure: searchMoviesRequestFailure,
-    },
-    {
-      path: `${MOVIES_PATH}?searchBy=${searchBy}&search=${search}`,
-      method: 'get',
-    }
-  );
+export const searchMovies = (searchBy: 'title' | 'genres', search: string): SearchMoviesAction => ({
+  type: SEARCH_MOVIES_ACTION,
+  payload: {
+    searchBy,
+    search,
+  },
+});

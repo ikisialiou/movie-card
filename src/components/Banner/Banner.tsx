@@ -1,19 +1,11 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { searchMovies } from '../../actions/moviesList';
+import { searchMovies } from '../../actions/moviesList/actions';
 import { Logo } from '../Logo';
 import { SearchPanel } from './SearchPanel';
 import './Banner.scss';
 import { SearchParamsEvent, SearchByType } from './SearchPanel/SearchPanel';
-
-interface MoviesListDispatchProps {
-  onSearchMoviesClick: (searchBy: SearchByType, search: string) => void;
-}
-
-interface BannerProps {
-  onSearchMoviesClick: (searchBy: SearchByType, search: string) => void;
-}
 
 export const Banner: React.FC<{}> = () => {
   const [searchBy, setSearchBy] = React.useState<SearchByType>('title');

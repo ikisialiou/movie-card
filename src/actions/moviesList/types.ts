@@ -1,3 +1,5 @@
+import { Action } from 'redux';
+
 export const SEARCH_MOVIES_REQUEST = 'SEARCH_MOVIES_REQUEST';
 export const SEARCH_MOVIES_REQUEST_SUCCESS = 'SEARCH_MOVIES_REQUEST_SUCCESS';
 export const SEARCH_MOVIES_REQUEST_FAILURE = 'SEARCH_MOVIES_REQUEST_FAILURE';
@@ -40,27 +42,21 @@ interface SearchMoviesRequestFailureAction {
   };
 }
 
-interface MovieRequestAction {
-  type: typeof GET_MOVIE_REQUEST;
+interface SearchMoviesParams {
+  searchBy: 'title' | 'genres';
+  search: string;
 }
 
-interface MovieRequestSuccessAction {
-  type: typeof GET_MOVIE_REQUEST_SUCCESS;
-  payload: {
-    movie: Movie;
-  };
+export interface SearchMoviesActionParams extends Action {
+  payload: SearchMoviesParams;
 }
 
-interface MovieRequestFailureAction {
-  type: typeof GET_MOVIE_REQUEST_FAILURE;
-  payload: {
-    error: string;
-  };
+export interface SearchMoviesAction {
+  type: typeof SEARCH_MOVIES_ACTION;
+  payload: SearchMoviesParams;
 }
 
 export type SearchMoviesRequestActionType =
   | SearchMoviesRequestAction
   | SearchMoviesRequestSuccessAction
   | SearchMoviesRequestFailureAction;
-
-export type MovieRequestActionType = MovieRequestAction | MovieRequestSuccessAction | MovieRequestFailureAction;
