@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Button } from 'components/Common/Button';
-import { ButtonColorType, ButtonEvent } from 'components/Common/Button/Button';
+import { ButtonEvent } from 'components/Common/Button/Button';
 import { Input } from 'components/Common/Input';
 import './SearchPanel.scss';
 
@@ -22,12 +22,12 @@ export interface SearchParamsEvent extends ButtonEvent {
 }
 
 export const SearchPanel: React.FC<SearchPanelProps> = ({ searchBy, onChangeSearchParam, onClickSearch }) => {
-  const getColorButton = (name: string): ButtonColorType => {
+  const getColorButton = (name: string): string => {
     if (searchBy === name) {
-      return 'pink';
+      return 'button__pink';
     }
 
-    return 'gray';
+    return 'button__gray';
   };
 
   return (
@@ -38,11 +38,17 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ searchBy, onChangeSear
         <div className="search__params">
           <div>
             <span>SEARCH BY</span>
-            <Button name="title" caption="TITLE" color={getColorButton('title')} onClick={onChangeSearchParam} />
-            <Button name="genres" caption="GENRE" color={getColorButton('genres')} onClick={onChangeSearchParam} />
+            <Button name="title" className={getColorButton('title')} onClick={onChangeSearchParam}>
+              TITLE
+            </Button>
+            <Button name="genres" className={getColorButton('genres')} onClick={onChangeSearchParam}>
+              GENRE
+            </Button>
           </div>
           <div>
-            <Button caption="SEARCH" type="submit" color="pink" />
+            <Button type="submit" className="button__pink button__big">
+              SEARCH
+            </Button>
           </div>
         </div>
       </form>

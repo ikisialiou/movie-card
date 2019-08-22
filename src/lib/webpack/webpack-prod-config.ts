@@ -1,4 +1,3 @@
-import * as path from 'path';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as StyleLintPlugin from 'stylelint-webpack-plugin';
 import * as MiniCssExtractPlugin  from 'mini-css-extract-plugin';
@@ -9,7 +8,7 @@ const config: WebpackConfig = {
   module: {
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           MiniCssExtractPlugin.loader,
@@ -29,7 +28,7 @@ const config: WebpackConfig = {
       },
     ]),
     new StyleLintPlugin({
-      files: ['src/**/*.scss']
+      files: ['src/**/*.scss'],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

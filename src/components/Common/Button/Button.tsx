@@ -2,8 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import './Button.scss';
 
-export type ButtonColorType = 'gray' | 'pink';
-
 type ButtonType = 'button' | 'submit';
 
 export interface ButtonEvent extends React.MouseEvent<HTMLElement> {
@@ -11,15 +9,14 @@ export interface ButtonEvent extends React.MouseEvent<HTMLElement> {
 }
 
 export interface ButtonProps {
-  caption: string;
   name?: string;
   type?: ButtonType;
-  color?: ButtonColorType;
+  className?: string;
   onClick?: (e: ButtonEvent) => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({ caption, name, type = 'button', color, onClick }) => (
-  <button type={type} name={name} className={classNames('button', `button__${color}`)} onClick={onClick}>
-    {caption}
+export const Button: React.FC<ButtonProps> = ({ children, name, type = 'button', className, onClick }) => (
+  <button type={type} name={name} className={classNames('button', className)} onClick={onClick}>
+    {children}
   </button>
 );

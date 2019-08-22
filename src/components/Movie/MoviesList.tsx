@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { InfoPanel } from '../InfoPanel';
 import { MovieCard } from './MovieCard';
+import { SortPanel } from './SortPanel';
 import { Movie } from '../../actions/types';
 import './MoviesList.scss';
 
@@ -10,13 +11,13 @@ interface MoviesListProps {
 }
 
 export const MoviesList: React.FC<MoviesListProps> = ({ movies = [] }) => (
-  <React.Fragment>
-    <InfoPanel moviesCount={movies.length} />
+  <main>
+    <InfoPanel>{movies.length ? <SortPanel moviesCount={movies.length} /> : null}</InfoPanel>
 
-    <div>
+    <section>
       <div className="movies-list">
         {movies.length ? movies.map(movie => <MovieCard key={movie.id} movie={movie} />) : 'No films found'}
       </div>
-    </div>
-  </React.Fragment>
+    </section>
+  </main>
 );

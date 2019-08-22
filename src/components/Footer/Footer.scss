@@ -2,6 +2,8 @@
 
 .footer {
   height: 50px;
-  line-height: 50px;
   background-color: $color-dark-gray;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
