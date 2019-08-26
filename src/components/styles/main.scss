@@ -1,1 +1,5 @@
 @import 'variables/color-palette';
+
+@mixin bg-color($bgColor) {
+  background-color: $bgColor;
+}

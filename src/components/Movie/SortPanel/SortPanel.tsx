@@ -1,17 +1,15 @@
 import * as React from 'react';
-import { Button } from 'components/Common/Button';
+import { RadioLink } from 'components/Common/Radio';
+import { SortPanelContext } from './SortPanelStore';
 
 interface InfoPanelProps {
   moviesCount: number;
 }
 
 export const SortPanel: React.FC<InfoPanelProps> = ({ moviesCount }) => {
-  const [sortBy, setSortBy] = React.useState('release_date');
+  const { sortBy, onClickSortBy } = React.useContext(SortPanelContext);
 
-  const onClickSortBy = (e: any): void => {
-    const { name } = e.target;
-    setSortBy(name);
-  };
+  const isChecked = (value: string): boolean => value === sortBy;
 
   return (
     <React.Fragment>
@@ -20,12 +18,12 @@ export const SortPanel: React.FC<InfoPanelProps> = ({ moviesCount }) => {
         movies found
       </span>
       <span>Sort by</span>
-      <Button name="release_date" onClick={onClickSortBy}>
+      <RadioLink value="release_date" checked={isChecked('release_date')} name="sort" onChange={onClickSortBy}>
         release date
-      </Button>
-      <Button name="rating" onClick={onClickSortBy}>
+      </RadioLink>
+      <RadioLink value="vote_average" checked={isChecked('vote_average')} name="sort" onChange={onClickSortBy}>
         rating
-      </Button>
+      </RadioLink>
     </React.Fragment>
   );
 };

@@ -26,10 +26,11 @@ export const searchMoviesRequestFailure = (error: string): SearchMoviesRequestAc
   },
 });
 
-export const searchMovies = (searchBy: 'title' | 'genres', search: string): SearchMoviesAction => ({
+export const searchMovies = (searchBy: 'title' | 'genres', search: string, sortBy: string): SearchMoviesAction => ({
   type: SEARCH_MOVIES_ACTION,
   payload: {
     searchBy,
     search,
+    sortBy,
   },
 });

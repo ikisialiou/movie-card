@@ -45,6 +45,7 @@ interface SearchMoviesRequestFailureAction {
 interface SearchMoviesParams {
   searchBy: 'title' | 'genres';
   search: string;
+  sortBy: string;
 }
 
 export interface SearchMoviesActionParams extends Action {

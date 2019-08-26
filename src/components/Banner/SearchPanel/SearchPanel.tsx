@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Button } from 'components/Common/Button';
 import { ButtonEvent } from 'components/Common/Button/Button';
+import { RadioButton } from 'components/Common/Radio';
 import { Input } from 'components/Common/Input';
 import './SearchPanel.scss';
 
@@ -14,7 +15,7 @@ interface SearchPanelProps {
 }
 
 interface SearchParamsEventTarget extends EventTarget {
-  name: SearchByType;
+  value: SearchByType;
 }
 
 export interface SearchParamsEvent extends ButtonEvent {
@@ -22,13 +23,7 @@ export interface SearchParamsEvent extends ButtonEvent {
 }
 
 export const SearchPanel: React.FC<SearchPanelProps> = ({ searchBy, onChangeSearchParam, onClickSearch }) => {
-  const getColorButton = (name: string): string => {
-    if (searchBy === name) {
-      return 'button__pink';
-    }
-
-    return 'button__gray';
-  };
+  const isChecked = (value: string): boolean => searchBy === value;
 
   return (
     <div className="search">
@@ -38,12 +33,17 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ searchBy, onChangeSear
         <div className="search__params">
           <div>
             <span>SEARCH BY</span>
-            <Button name="title" className={getColorButton('title')} onClick={onChangeSearchParam}>
+            <RadioButton value="title" checked={isChecked('title')} name="searchParams" onChange={onChangeSearchParam}>
               TITLE
-            </Button>
-            <Button name="genres" className={getColorButton('genres')} onClick={onChangeSearchParam}>
+            </RadioButton>
+            <RadioButton
+              value="genres"
+              checked={isChecked('genres')}
+              name="searchParams"
+              onChange={onChangeSearchParam}
+            >
               GENRE
-            </Button>
+            </RadioButton>
           </div>
           <div>
             <Button type="submit" className="button__pink button__big">

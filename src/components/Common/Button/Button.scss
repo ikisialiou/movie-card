@@ -1,9 +1,5 @@
 @import '../../styles/main';
 
-@mixin bg-color($bgColor) {
-  background-color: $bgColor;
-}
-
 .button {
   padding: 5px 10px;
   color: $color-white;

@@ -7,11 +7,11 @@ import { searchMoviesRequest, searchMoviesRequestSuccess, searchMoviesRequestFai
 const MOVIES_PATH = '/movies';
 
 function* searchMoviesAction(action: SearchMoviesActionParams): any {
-  const { searchBy, search } = action.payload;
+  const { searchBy, search, sortBy } = action.payload;
   yield put(searchMoviesRequest());
   try {
     const json = yield call(apiRequest, {
-      path: `${MOVIES_PATH}?searchBy=${searchBy}&search=${search}`,
+      path: `${MOVIES_PATH}?searchBy=${searchBy}&search=${search}&sortBy=${sortBy}&sortOrder=desc`,
       method: 'get',
     });
     yield put(searchMoviesRequestSuccess(json.data));
