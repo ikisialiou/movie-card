@@ -1,16 +1,11 @@
 import * as React from 'react';
 
-import { SortPanelStore } from 'components/Movie/SortPanel/SortPanelStore';
-import { Banner } from '../Banner';
-import { MoviesList } from '../../containers';
-import { Footer } from '../Footer';
+import { Footer } from 'components/Footer';
+import { SearchPage } from 'components/Pages/SearchPage';
 
 export const App: React.FunctionComponent<{}> = () => (
   <React.Fragment>
-    <SortPanelStore>
-      <Banner />
-      <MoviesList />
-    </SortPanelStore>
+    <SearchPage />
     <Footer />
   </React.Fragment>
 );

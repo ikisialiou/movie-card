@@ -1,0 +1,1 @@
+export { SerachInfoPanel } from './SerachInfoPanel';

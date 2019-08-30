@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { SortPanelContext } from 'components/Movie/SortPanel/SortPanelStore';
+import { SortByContext } from 'components/Movie/SortBy';
 import { searchMovies } from '../../actions/moviesList/actions';
 import { Logo } from '../Logo';
-import { SearchPanel } from './SearchPanel';
+import { SearchPanel } from '../SearchPanel';
 import './Banner.scss';
-import { SearchParamsEvent, SearchByType } from './SearchPanel/SearchPanel';
+import { SearchParamsEvent, SearchByType } from '../SearchPanel/SearchPanel';
 
 export const Banner: React.FC<{}> = () => {
   const [searchBy, setSearchBy] = React.useState<SearchByType>('title');
   const dispatch = useDispatch();
-  const { sortBy } = React.useContext(SortPanelContext);
+  const { sortBy } = React.useContext(SortByContext);
 
   const onClickSearch = (e: any): void => {
     e.preventDefault();

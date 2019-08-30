@@ -13,11 +13,7 @@ export const SortPanel: React.FC<InfoPanelProps> = ({ moviesCount }) => {
 
   return (
     <React.Fragment>
-      <span>
-        {moviesCount}
-        movies found
-      </span>
-      <span>Sort by</span>
+      
       <RadioLink value="release_date" checked={isChecked('release_date')} name="sort" onChange={onClickSortBy}>
         release date
       </RadioLink>

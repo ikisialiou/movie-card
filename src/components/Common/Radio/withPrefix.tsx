@@ -13,7 +13,7 @@ export const withPrefix = (
     const radioClass = classNames({
       [prefix]: prefix,
       [checkedStyle]: checked,
-      className,
+      [className]: className,
     });
 
     return (
