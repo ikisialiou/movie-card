@@ -1,5 +1,6 @@
 import * as path from 'path';
 import * as HtmlWebPackPlugin from 'html-webpack-plugin';
+import { CheckerPlugin  } from 'awesome-typescript-loader';
 import { WebpackConfig } from './webpack';
 
 const config: WebpackConfig = {
@@ -29,7 +30,7 @@ const config: WebpackConfig = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
+        use: 'awesome-typescript-loader',
       },
       {
         enforce: 'pre',
@@ -42,11 +43,6 @@ const config: WebpackConfig = {
         loader: 'eslint-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-      },
     ],
   },
   plugins: [
@@ -54,6 +50,7 @@ const config: WebpackConfig = {
       template: 'public/index.html',
       inject: 'body',
     }),
+    new CheckerPlugin(),
   ],
 };
 

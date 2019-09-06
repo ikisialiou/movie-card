@@ -42,7 +42,7 @@ interface SearchMoviesRequestFailureAction {
   };
 }
 
-interface SearchMoviesParams {
+export interface SearchMoviesParams {
   searchBy: 'title' | 'genres';
   search: string;
   sortBy: string;

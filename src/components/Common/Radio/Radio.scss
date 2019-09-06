@@ -12,6 +12,7 @@
   &__button {
     color: $color-white;
     @include bg-color($color-dark-gray);
+
     display: inline-block;
     padding: 5px;
     text-align: center;

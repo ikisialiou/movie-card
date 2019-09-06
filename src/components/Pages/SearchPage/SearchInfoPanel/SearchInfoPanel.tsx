@@ -7,7 +7,7 @@ import { MoviesCountInfo } from 'components/Movie/MoviesCountInfo';
 import { Movie } from 'actions/moviesList/types';
 import { State } from 'config/types';
 
-export const SerachInfoPanel: React.FC<{}> = () => {
+export const SearchInfoPanel: React.FC<{}> = () => {
   const movies = useSelector((state: State): Movie[] => state.moviesList.movies);
 
   return movies.length ? (

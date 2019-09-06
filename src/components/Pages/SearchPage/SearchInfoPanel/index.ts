@@ -1,1 +1,1 @@
-export { SerachInfoPanel } from './SerachInfoPanel';
+export { SearchInfoPanel } from './SearchInfoPanel';

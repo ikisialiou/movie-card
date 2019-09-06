@@ -1,1 +1,1 @@
-export { MoviesList } from './MoviesList';
+export { MoviesListContainer as MoviesList } from './MoviesListContainer';
