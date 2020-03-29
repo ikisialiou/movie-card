@@ -1,0 +1,1 @@
+export { SearchInfoPanel } from './SearchInfoPanel';

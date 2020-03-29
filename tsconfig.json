@@ -8,11 +8,19 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es2017",
-    "jsx": "preserve",
-    "allowJs": true
+    "jsx": "react",
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"],
+      "components/*": ["./src/components/*"]
+    }
   },
   "exclude": [
     "node_modules",
     "public"
+  ],
+  "include": [
+    "src", "src/.storybook", "src/stories"
   ]
 }

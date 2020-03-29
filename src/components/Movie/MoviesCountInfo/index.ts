@@ -1,0 +1,1 @@
+export { MoviesCountInfo } from './MoviesCountInfo';

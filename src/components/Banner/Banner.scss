@@ -1,0 +1,12 @@
+@import '../styles/main';
+
+.banner {
+  background-color: $color-dark-gray;
+  opacity: 0.9;
+}
+
+.sort-panel {
+  height: 50px;
+  line-height: 50px;
+  background-color: $color-gray;
+}

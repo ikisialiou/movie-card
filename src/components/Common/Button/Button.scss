@@ -1,0 +1,22 @@
+@import '../../styles/main';
+
+.button {
+  padding: 5px 10px;
+  color: $color-white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: inherit;
+
+  &__gray {
+    @include bg-color($color-dark-gray);
+  }
+
+  &__pink {
+    @include bg-color($color-pink);
+  }
+
+  &__big {
+    padding: 10px 30px;
+  }
+}

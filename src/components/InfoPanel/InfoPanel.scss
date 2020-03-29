@@ -1,0 +1,10 @@
+@import '../styles/main';
+
+.info-panel {
+  height: 50px;
+  line-height: 50px;
+  background-color: $color-gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

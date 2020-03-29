@@ -1,0 +1,51 @@
+@import "../../styles/main";
+
+@mixin hidden-radio {
+  height: 0;
+  width: 0;
+  margin: 0;
+}
+
+.radio {
+  cursor: pointer;
+
+  &__button {
+    color: $color-white;
+    @include bg-color($color-dark-gray);
+
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+
+    .radio__input {
+      @include hidden-radio();
+    }
+  }
+
+  &__button--checked {
+    color: $color-white;
+    @include bg-color($color-pink);
+  }
+
+  &__link {
+    color: $color-white;
+    display: inline-block;
+    text-align: center;
+
+    .radio__input {
+      @include hidden-radio();
+    }
+  }
+
+  &__link--checked {
+    color: $color-pink;
+  }
+}
+
+.radio-text {
+  color: $color-white;
+
+  &__checked {
+    color: $color-pink;
+  }
+}
